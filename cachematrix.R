@@ -14,12 +14,12 @@ makeCacheMatrix <- function(x = numeric()) {
 
 # this function is used to retrieve the inverse from the cache. 
 cacheSolve <- function(x, ...) {
-  inv <- x$getinv()
+  inv <- x$getinv() # retrieve the inverse from the cache if inv is not null
   if(!is.null(inv)) {
     message("getting cached data")
-    return(inv) # retrieve the inverse from the cache
+    return(inv) 
   }
   data <- x$get() # retrieve the matrix 'x'
-  inv <- solve(data) # return a matrix that is the inverse of data
+  inv <- solve(data) # return a matrix that is the inverse of x
   inv 
 }
